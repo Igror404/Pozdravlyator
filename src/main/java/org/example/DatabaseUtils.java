@@ -93,7 +93,7 @@ public class DatabaseUtils {
            SELECT id, first_name, last_name, birthdate,
                   (EXTRACT(DOY FROM birthdate) - EXTRACT(DOY FROM now()) + 365) % 365 AS days_until_birthday
            FROM person
-           WHERE (EXTRACT(DOY FROM birthdate) - EXTRACT(DOY FROM now()) + 365) % 365 > 0
+           WHERE (EXTRACT(DOY FROM birthdate) - EXTRACT(DOY FROM now()) + 365) % 365 >= 0
                  AND (EXTRACT(DOY FROM birthdate) - EXTRACT(DOY FROM now()) + 365) % 365 <= 7
            ORDER BY days_until_birthday;
            """;
